@@ -18,7 +18,6 @@ def load_images(dataset):
     img_data_list = []
     labels = []
     list_of_image_paths = []
-    label_test = []
 
     data_dir_list = os.listdir(dataset)
     for folder_name in data_dir_list:
@@ -30,10 +29,9 @@ def load_images(dataset):
             images = cv2.resize(images, (224, 224))
             list_of_image_paths.append(images)
         img_data_list.append(img_list)
-        labels.append(folder_name)
-        label_test.append([folder_name] * len(img_list))
+        labels.append([folder_name] * len(img_list))
 
-    return np.array(list_of_image_paths), label_test, labels
+    return np.array(list_of_image_paths), labels
 
 def binarize_labels(label_test):
 

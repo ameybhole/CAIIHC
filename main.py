@@ -6,8 +6,8 @@ from src.models import Models
 from src.train import train_test_split, train_model
 
 if __name__ == '__main__':
-    list_of_image_paths, label_test, labels = load_images("D:\Amey\Masters\Projects\CAIIHC\data")
-    binarizelabels = binarize_labels(label_test)
+    list_of_image_paths, labels = load_images("D:\Amey\Masters\Projects\CAIIHC\data")
+    binarizelabels = binarize_labels(labels)
     skf = train_test_split(5)
     model = Models(True, 136, 'imagenet', False, 'avg', 'softmax')
     model.resnet50()
