@@ -5,7 +5,7 @@ from sklearn import preprocessing
 
 
 
-def load_images(dataset):
+def load_images(dataset, resize):
 
     """
 
@@ -18,6 +18,7 @@ def load_images(dataset):
     img_data_list = []
     labels = []
     list_of_image_paths = []
+    labels_list = []
 
     data_dir_list = os.listdir(dataset)
     for folder_name in data_dir_list:
@@ -26,14 +27,15 @@ def load_images(dataset):
         for image in img_list:
             retrieve_dir = dataset + "/" + folder_name + "/" + image
             images = cv2.imread(retrieve_dir, 3)
-            images = cv2.resize(images, (224, 224))
+            images = cv2.resize(images, (resize, resize))
             list_of_image_paths.append(images)
         img_data_list.append(img_list)
+        labels_list.append(folder_name)
         labels.append([folder_name] * len(img_list))
 
-    return np.array(list_of_image_paths), labels
+    return np.array(list_of_image_paths), labels, labels_list
 
-def binarize_labels(label_test):
+def binarize_labels(labels):
 
     """
 
@@ -42,7 +44,7 @@ def binarize_labels(label_test):
     :return: Lists of binarized labels
 
     """
-    flattened_list = np.asarray([y for x in label_test for y in x], dtype="str")
+    flattened_list = np.asarray([y for x in labels for y in x], dtype="str")
     lb = preprocessing.LabelBinarizer().fit(flattened_list)
     labels = lb.transform(flattened_list)
 

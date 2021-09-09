@@ -26,10 +26,10 @@ def train_model(model, X_train, y_train, batch_size, num_epochs, X_test, y_test)
     """
 
     hist = model.fit(X_train, y_train, batch_size=batch_size, epochs=num_epochs,
-                                   verbose=2,
+                                   verbose=1,
                                    validation_data=(X_test, y_test))
 
-    (loss, accuracy) = model.evaluate(X_test, y_test, batch_size=batch_size, verbose=2)
+    (loss, accuracy) = model.evaluate(X_test, y_test, batch_size=batch_size, verbose=1)
     print("[INFO] loss={:.4f}, accuracy: {:.4f}%".format(loss, accuracy * 100))
 
-    return model
+    return model, hist, loss, accuracy

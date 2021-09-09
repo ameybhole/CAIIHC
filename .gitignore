@@ -2,3 +2,4 @@ data/
 .idea/
 src/__pycache__/
 *.py[cod]
+weights/
