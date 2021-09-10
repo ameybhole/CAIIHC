@@ -121,7 +121,7 @@ if __name__ == '__main__':
                                                       X_test, y_test, args.model)
 
             plot_data_graph(hist, args.num_epochs)
-            pred = model_predictions(model, X_test)
+            pred = model_predictions(model, X_test, labels)
             printWrongPredictions(pred, y_test)
 
             all_fold_accuracy.append(accuracy * 100)
