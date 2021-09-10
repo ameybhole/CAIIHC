@@ -1,0 +1,6 @@
+data/
+weights/
+models/
+.idea/
+src/__pycache__/
+*.py[cod]
