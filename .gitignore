@@ -1,6 +1,6 @@
 data/
-weights/
 models/
+weights/
 .idea/
 src/__pycache__/
 *.py[cod]
