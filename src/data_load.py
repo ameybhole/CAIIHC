@@ -23,7 +23,6 @@ def load_images(dataset, resize):
     data_dir_list = os.listdir(dataset)
     for folder_name in data_dir_list:
         img_list = os.listdir(dataset + '/' + folder_name)
-
         for image in img_list:
             retrieve_dir = dataset + "/" + folder_name + "/" + image
             images = cv2.imread(retrieve_dir, 3)
