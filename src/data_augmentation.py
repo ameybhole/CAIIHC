@@ -68,7 +68,7 @@ class Augmentation(object):
 
         Function to return an list of augmented images
 
-        :param images: lis tof images ot be augmented
+        :param images: list of images to be augmented
         :return: Lists of augmented images
 
         """
