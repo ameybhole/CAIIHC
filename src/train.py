@@ -20,6 +20,12 @@ def train_model(model, X_train, y_train, batch_size, num_epochs, X_test, y_test,
     """
 
         Function to return trained model
+        :param X_train:
+        :param y_train:
+        :param batch_size:
+        :param num_epochs:
+        :param y_test:
+        :param model_name:
         :param model: Model to be trained, X_train:Training data, y_train:Training labels,
         batch_size:batch_size, num_epoch: number of epochs, X_test:Testing data, y_test: Testing labels
         :return: Trained model

@@ -98,7 +98,7 @@ class Models(object):
 
     def model_compile(
             self,
-            learning_rate: float = 1e-4,
+            learning_rate: float = 1e-3,
             beta1: float = 0.9,
             beta2: float = 0.999,
             epsilon: float = 1e-8,
