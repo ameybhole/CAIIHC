@@ -1,14 +1,11 @@
-import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn import preprocessing
-from src.data_load import binarize_labels
 
 
 def printWrongPredictions(pred, y_test, labels):
     array = []
 
-    # Print predicted vs. Actual
     for i in enumerate(pred):
         biggest_value_index = pred[i].argmax(axis=0)
         value = pred[i][biggest_value_index]

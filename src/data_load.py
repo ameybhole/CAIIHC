@@ -3,8 +3,6 @@ import cv2
 import numpy as np
 from sklearn import preprocessing
 
-
-
 def load_images(dataset, resize):
 
     """

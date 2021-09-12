@@ -1,18 +1,8 @@
 from keras.models import *
 from keras.optimizers import Adam
-from keras.preprocessing import image as Image
 from keras.layers import *
-from keras.utils import np_utils, to_categorical
-from keras import optimizers, regularizers, initializers
 from keras.engine import Model
-from keras.callbacks import Callback
-from keras.callbacks import LambdaCallback, EarlyStopping, ModelCheckpoint
-from keras.preprocessing.image import ImageDataGenerator
-from keras.applications.imagenet_utils import preprocess_input
-from keras.preprocessing import image
-# ResNet50
 from keras.applications.resnet50 import ResNet50
-from keras.applications.resnet50 import preprocess_input, decode_predictions
 from keras_applications.vgg16 import VGG16
 from keras_vggface import VGGFace
 
@@ -62,7 +52,8 @@ class Models(object):
         facenet_model = load_model('./weights/facenet_keras.h5')
         weights = facenet_model.load_weights('./weights/facenet_keras_weights.h5')
         x = facenet_model.layers[-3]
-        out = Dense(self.num_classes, activation=self.activation, name='output', use_bias=True)(x.output)
+        out = Dense(self.num_classes, activation=self.activation, name='output', use_bias=True)(
+            x.output)
 
         self.model_out = Model(inputs=facenet_model.input, outputs=out)
 
@@ -72,7 +63,7 @@ class Models(object):
 
         """
         base_model = VGG16(weights=self.weights, include_top=self.include_top,
-                              pooling=self.pooling)
+                           pooling=self.pooling)
         x = base_model.layers[-1]
         out = Dense(self.num_classes, activation=self.activation, name='output', use_bias=True)(
             x.output)
@@ -85,7 +76,7 @@ class Models(object):
 
         """
         base_model = VGGFace(weights=self.weights, include_top=self.include_top,
-                              pooling=self.pooling)
+                             pooling=self.pooling)
         x = base_model.layers[-1]
         out = Dense(self.num_classes, activation=self.activation, name='output', use_bias=True)(
             x.output)

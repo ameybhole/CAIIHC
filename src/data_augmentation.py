@@ -1,7 +1,6 @@
 import albumentations as A
 import numpy as np
 
-
 class Augmentation(object):
 
     def __init__(
