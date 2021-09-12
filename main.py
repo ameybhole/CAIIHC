@@ -2,10 +2,10 @@ import argparse
 import numpy as np
 from src.data_augmentation import Augmentation
 from src.data_load import load_images, binarize_labels
-from src.evaluation import plot_data_graph, model_predictions, printWrongPredictions
+from src.evaluation import model_predictions, printWrongPredictions
 from src.models import Models
 from src.train import train_test_split, train_model
-from src.visualizations import visualize_scatter_with_images, tsne
+from src.visualizations import visualize_scatter_with_images, tsne, plot_data_graph
 
 if __name__ == '__main__':
 

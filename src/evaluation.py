@@ -1,9 +1,20 @@
-import matplotlib.pyplot as plt
 import numpy as np
 from sklearn import preprocessing
 
 
 def printWrongPredictions(pred, y_test, labels):
+
+    """
+
+    Function to print list of incorrectly classified labels
+
+    :param pred: Predictions
+    :param y_test: Testing labels
+    :param labels: List of labels
+    :return: Incorreclty classified labels
+
+    """
+
     array = []
 
     for i in enumerate(pred):
@@ -24,37 +35,18 @@ def printWrongPredictions(pred, y_test, labels):
             print("Predicted:", pred[i], " Actual: ", y_test[i])
 
 
-def plot_data_graph(hist, num_epochs, model_name):
-    train_loss = hist.history['loss']
-    val_loss = hist.history['val_loss']
-    train_acc = hist.history['categorical_accuracy']
-    val_acc = hist.history['val_categorical_accuracy']
-    xc = range(num_epochs)
-
-    plt.figure(figsize=(12, 10))
-    plt.plot(xc, train_loss)
-    plt.plot(xc, val_loss)
-    plt.xlabel('num of Epochs')
-    plt.ylabel('loss')
-    plt.title('train_loss vs val_loss')
-    plt.grid(True)
-    plt.legend(['train', 'val'])
-    plt.show()
-    plt.savefig("./plots/" + model_name + "_loss")
-
-    plt.figure(figsize=(12, 10))
-    plt.plot(xc, train_acc)
-    plt.plot(xc, val_acc)
-    plt.xlabel('num of Epochs')
-    plt.ylabel('loss')
-    plt.title('train_acc vs val_acc')
-    plt.grid(True)
-    plt.legend(['train', 'val'])
-    plt.show()
-    plt.savefig("./plots/" + model_name + "_acc")
-
-
 def model_predictions(model, X_test):
+
+    """
+
+    Function to predictions
+
+    :param X_test: Testing data
+    :param model: Model to  evaluate
+    :return: Predictions
+
+    """
+
     pred = model.predict(X_test)
 
     return pred

@@ -1,36 +1,42 @@
 from keras.callbacks import ModelCheckpoint
 from sklearn.model_selection import StratifiedShuffleSplit
 
+
 def train_test_split(n_split):
+
     """
 
     Function to return train and test sets
-    :param : loaded images and labels with the number of splits
-    :return: Train and test sets along with labels
+
+    :param n_split : number of splits
+    :return: Object for splitting dataset in a stratified way
 
     """
+
     skf = StratifiedShuffleSplit(n_splits=n_split, random_state=None, test_size=0.2)
 
     return skf
 
 
 def train_model(model, X_train, y_train, batch_size, num_epochs, X_test, y_test, model_name):
-    """
-
-        Function to return trained model
-        :param X_train:
-        :param y_train:
-        :param batch_size:
-        :param num_epochs:
-        :param y_test:
-        :param model_name:
-        :param model: Model to be trained, X_train:Training data, y_train:Training labels,
-        batch_size:batch_size, num_epoch: number of epochs, X_test:Testing data, y_test: Testing labels
-        :return: Trained model
 
     """
 
-    filepath = "./models/" + model_name+"_model_weights.h5"
+    Function to Train model
+
+    :param X_test: Testing data
+    :param X_train: Training data
+    :param y_train: Training labels
+    :param batch_size: Batch size
+    :param num_epochs: Number of epochs
+    :param y_test: Testing labels
+    :param model_name: Name of model
+    :param model: Model to be trained
+    :return: Trained model, History of training, Loss, Accuracy
+
+    """
+
+    filepath = "./models/" + model_name + "_model_weights.h5"
     checkpoint = ModelCheckpoint(filepath, monitor=["acc"], verbose=1, mode='max')
     callbacks_list = [checkpoint]
 

@@ -3,11 +3,14 @@ import cv2
 import numpy as np
 from sklearn import preprocessing
 
+
 def load_images(dataset, resize):
 
     """
 
     Function to return an list of images and its labels
+
+    :param resize: resize the image
     :param dataset: Folder with class name and all the images in the dataset
     :return: Lists of image in an array form
 
@@ -32,23 +35,20 @@ def load_images(dataset, resize):
 
     return np.array(list_of_image_paths), labels, labels_list
 
+
 def binarize_labels(labels):
 
     """
 
     Function to return an list of binarized labels
-    :param dataset: list of labels
+
+    :param labels: List of labels
     :return: Lists of binarized labels
 
     """
+
     flattened_list = np.asarray([y for x in labels for y in x], dtype="str")
     lb = preprocessing.LabelBinarizer().fit(flattened_list)
     labels = lb.transform(flattened_list)
 
     return labels
-
-
-
-
-
-
