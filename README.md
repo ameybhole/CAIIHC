@@ -9,3 +9,5 @@ This respository contains code for the project "Comparative analysis of individu
 ```
 $ pip install -r requirements.txt
 ```
+
+## Run
