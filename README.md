@@ -10,7 +10,7 @@ This respository contains code for the project "Comparative analysis of individu
 * [Repository Structure](#Repository-Structure)
 * [Running Experiments](#Running-Experiments)
 * [Performance](#Performance)
-* [Conclusion](#Conclusion)
+<!-- * [Conclusion](#Conclusion) -->
 
 ## Introduction
 
