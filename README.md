@@ -80,14 +80,14 @@ FaceNet weights and model were downloaded from the following github repository:
 
 https://github.com/nyoki-mtl/keras-facenet
 
-## Running Expriments
+## Running Experiments
 
-### Train without augmentation
+#### Train without augmentation
 
 ```Bash
 python main.py --num_epochs 20 --mode train --dataset [path to dataset] --resize 224 --tsne False --batch_size 32 --classes 136 --trainable True --include_top False --model resent50 
 ```
-### Train with augmentation
+#### Train with augmentation
 
 ```Bash
 python main.py --num_epochs 20 --mode augment --dataset [path to dataset] --resize 224 --tsne False --batch_size 32 --classes 136 --trainable True --include_top False --flip True --rotation_left -10 --rotation_right 10 --bright 1.5 --dark 0.5 --gaussian_nosie True --model resent50
@@ -95,7 +95,7 @@ python main.py --num_epochs 20 --mode augment --dataset [path to dataset] --resi
 
 ## Performance
 
-### Results without augmentation
+#### Results without augmentation
 
 |          Model         |   Accuracy   | Precision  | Recall |  
 | ---------------------- | ------------ | ------------ | ------------ | 
@@ -104,7 +104,7 @@ python main.py --num_epochs 20 --mode augment --dataset [path to dataset] --resi
 | `VGG-16`              | `90.11 ± 0.085` | `91.12 ± 0.025` | `91.45 ± 0.022` | 
 | `VGG-Face`              | `93.25 ± 0.077` | `93.44 ± 0.084` | `93.22 ± 0.075` | 
 
-### Results with augmentation
+#### Results with augmentation
 
 |          Model         |   Accuracy   | Precision  | Recall |  
 | ---------------------- | ------------ | ------------ | ------------ | 
